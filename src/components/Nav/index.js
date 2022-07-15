@@ -1,13 +1,13 @@
 import React from "react";
 import { capitalizeFirstLetter } from "../../utils/helpers";
 
-function Nav() {
-  const  categories = [
-    { name: 'commercial', description: 'Photos of grocery stores, food trucks, and other commercial projects' },
+function Nav() {    //use the .map() function inside a JSX expression
+  const  categories = [   // First we'll define the categories in an array above the return statement. Instead of just listing each category's name
+    { name: 'commercial', description: 'Photos of grocery stores, food trucks, and other commercial projects' },  //each catergories name and a short description
     { name: 'portraits', description: 'Portraits of people in my life' },
     { name: 'food', description: 'Delicious delicacies' },
     { name: 'landscape', description: 'Fields, farmhouses, waterfalls, and the beauty of nature' }
-  ];
+  ]; // categories name: is being used as a key in the mapping process
 
   const handleClick = () => {
     console.log("click handled")
@@ -33,8 +33,8 @@ function Nav() {
             </span>
           </li>
           {
-            categories.map((category) => (
-              <li className="mx-1" key={category.name} >
+            categories.map((category) => (   //  <-------------  Here we are mapping over the array for the categories //Whenever we map over anything in JSX, the outermost element must have a key attribute that's set to be something unique. This helps React keep track of items in the virtual DOM.
+              <li className="mx-1" key={category.name} >   
                 <span onClick={() => { handleClick(); }}>
                  {capitalizeFirstLetter(category.name)}
                 </span>
@@ -47,4 +47,4 @@ function Nav() {
   );
 }
 
-export default Nav;
+export default Nav;  // exporting to App.js

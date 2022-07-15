@@ -1,6 +1,6 @@
 import React from 'react';
 import Nav from './components/Nav';
-import About from './components/About';
+import About from './components/About';  //importing the components file
 
 function App() {
 
