@@ -16,19 +16,19 @@ function Nav() {    //use the .map() function inside a JSX expression
   return (
     <header data-testid="header" className="flex-row px-1">
       <h2>
-        <a href="/">
+      <a data-testid="link" href="/">
           <span role="img" aria-label="camera"> 📸</span> Oh Snap!
         </a>
       </h2>
       <nav>
         <ul className="flex-row">
           <li className="mx-2">
-            <a href="#about" onClick={() => handleClick()}>
+            <a data-testid="about" href="#about" onClick={() => handleClick("About")}>
               About me
             </a>
           </li>
           <li className={"mx-2"}>
-            <span onClick={() => handleClick()}>
+            <span onClick={() => handleClick('Contact')}>
               Contact
             </span>
           </li>

@@ -12,11 +12,17 @@ afterEach(cleanup); // this will make sure we dont have to worry about any lefto
 
 //declaire the component we are testing
 describe('About component', () => {  // this is baseline to verify that the component is rendering
-   // First Test
+   // First Test  //aka component test
    it('renders', () => {  // it function. In the first argument, a string declares what is being tested. In the second argument, a callback function runs the test.
     render(<About />);
   });
 
-  // Second Test
+  // Second Test// aka snap shot test or "test case"
+  it('matches snapshot DOM node structure', () => {
+    // render About
+    const { asFragment } = render(<About />);  // asFragment  returns a snapshot of the About component
+    expect(asFragment()).toMatchSnapshot();    // we'll use the toMatchSnapshot matcher to assert that snapshots will match:
+  });
 })
   
+
