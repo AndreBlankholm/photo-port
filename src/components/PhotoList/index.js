@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react';  // we are using useState to set the default values for the array of photos
 
 const PhotoList = ({ category }) => {
   const [photos] = useState([
@@ -118,17 +118,19 @@ const PhotoList = ({ category }) => {
     }
   ]);
 
-  const currentPhotos = photos.filter(photo => photo.category === category);
+
+    //We need to make it so that only photos with the selected category appear
+  const currentPhotos = photos.filter(photo => photo.category === category);  // this variable outside of the return used to map
 
   return (
     <div>
       <div className="flex-row">
-        {currentPhotos.map((image, i) => (
+        {currentPhotos.map((image, i) => (  //image, i can be used because of the incremental naming by using I
           <img
-            src={require(`../../assets/small/${category}/${i}.jpg`).default}
-            alt={image.name}
-            className="img-thumbnail mx-1"
-            key={image.name}
+            src={require(`../../assets/small/${category}/${i}.jpg`).default}  // We were also able to take advantage of the incremental naming of the images by using i.
+            alt={image.name}  //The alt attribute is used for accessibility user-assistance devices, such as screen readers, so the image's name was assigned.
+            className="img-thumbnail mx-1"   // class name beacuse its in a div of photos
+            key={image.name}  // The key attribute was also assigned the image's name. This attribute value must be a unique string. The absence of this unique key value will cause an error message.
           />
         ))}
       </div>
@@ -136,4 +138,4 @@ const PhotoList = ({ category }) => {
   );
 };
 
-export default PhotoList;
+export default PhotoList;  // The default property is where the image has been saved. To render the image, the default property must be invoked. so we can use it in props

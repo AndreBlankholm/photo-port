@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';  // this useEffect is for the useEffect case on line 13
+
 import { capitalizeFirstLetter } from "../../utils/helpers";
 
 function Nav(props) {  // all these  are combined.  categories, and setCurrentCategory/ currentCategorey are 2 different useStates but and on the Nav(props) const {} object
@@ -9,10 +9,7 @@ function Nav(props) {  // all these  are combined.  categories, and setCurrentCa
     currentCategory,
   } = props;
 
-  useEffect(() => {     //  to update the tab on the browser to reflect the user's category selection
-    document.title = capitalizeFirstLetter(currentCategory.name); //(1)Notice in the preceding code block that the first argument is the callback function, and the second argument is an array with a single element, currentCategory. 
-  }, [currentCategory]);                                          // (2)The second argument directs the hook to re-render the component on changes to the value of this state.
-                         
+        
 
 
   const handleClick = (item) => {  // this is the defined onclik method that needs to be defined above the return statement

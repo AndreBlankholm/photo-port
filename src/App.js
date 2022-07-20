@@ -24,11 +24,11 @@ function App() {
         currentCategory={currentCategory}
       ></Nav>
       <main>
-        <Gallery currentCategory={currentCategory}></Gallery>
+        <Gallery currentCategory={currentCategory}></Gallery> 
         <About></About>
       </main>
     </div>
   );
 }
-
+                                                            // ^ We need to pass the current category, which is the category selected by the user, from the Gallery component in App.js
 export default App;

@@ -5,12 +5,19 @@ import "@testing-library/jest-dom/extend-expect";
 // next we will import the component that we will test {About}
 import Nav from "..";
 
+//------------------------------------------------------------------
+// The Nav component has been modified in this lesson to handle props. The test suite for the Nav must reflect that in order to render and function properly.
+
+
+//------------------------------------------------------------------
+
+
 
 
 afterEach(cleanup); // this will make sure we dont have to worry about any leftover memory
 
-//declaire the component we are testing
-describe("About component", () => {
+//declaire the component we are testing  //these are standard tests for start up 
+describe("Nav component", () => {
   // this is baseline to verify that the component is rendering
   // First Test  //aka component test
   it("renders", () => {
@@ -24,9 +31,11 @@ describe("About component", () => {
     const { asFragment } = render(<Nav />); // asFragment  returns a snapshot of the About component
     expect(asFragment()).toMatchSnapshot(); // we'll use the toMatchSnapshot matcher to assert that snapshots will match:
   });
-});
+})
 
 //--------------------------------
+
+
 
 // this is to check for the emoji using its Label as an Id (labelText) example   <span role="img" aria-label="camera"> 📸</span> Oh Snap
 describe("emoji is visible", () => {

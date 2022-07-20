@@ -5,7 +5,7 @@ import { capitalizeFirstLetter } from '../../utils/helpers';
 
 
 
-function Gallery(props) {
+function Gallery(props) { ///added photo list <PhotoList category={currentCategory.name} /> so it could used in 
   
   const { currentCategory } = props;
 
@@ -17,5 +17,5 @@ function Gallery(props) {
     </section>
   );
 }                             
-export default Gallery;
+export default Gallery;  //added photo list  to promps by -----(category as seen here )-----<PhotoList category={currentCategory.name} /> so it could used in 
 
