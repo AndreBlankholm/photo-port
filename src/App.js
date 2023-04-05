@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div>
-      <Nav        
+      <Nav
         categories={categories}
         setCurrentCategory={setCurrentCategory}
         currentCategory={currentCategory}

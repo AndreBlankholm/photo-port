@@ -100,8 +100,9 @@ const PhotoList = ({ category }) => {
     },
   ]);
 
+  // We need to make it so that only photos with the selected category appear.
   const currentPhotos = photos.filter((photo) => photo.category === category);
-
+  
   return (
     <div>
       <div className="flex-row">
