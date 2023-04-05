@@ -4,6 +4,7 @@ import About from "./components/About";
 import Nav from "./components/Nav";
 import Gallery from "./components/Gallery";
 import "./App.css";
+import ContactForm from "./components/Contact";
 //<img src={logo} className="App-logo" alt="logo" />
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
       ></Nav>
       <main>
         <div>
+          <ContactForm></ContactForm>
           <Gallery currentCategory={currentCategory}></Gallery>
           <About></About>
         </div>
