@@ -8,9 +8,6 @@ import ContactForm from "./components/Contact";
 //<img src={logo} className="App-logo" alt="logo" />
 
 function App() {
-  //condition what renders based on which menu item the user selects from the navigation bar.
-  const [contactSelected, setContactSelected] = useState(false); //to prevent the contact form from showing when a user initially navigates to the homepage.
-
   const [categories] = useState([
     {
       name: "commercial",
@@ -26,6 +23,8 @@ function App() {
   ]);
 
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
+  //condition what renders based on which menu item the user selects from the navigation bar.
+  const [contactSelected, setContactSelected] = useState(false); //to prevent the contact form from showing when a user initially navigates to the homepage.
 
   return (
     <div>
