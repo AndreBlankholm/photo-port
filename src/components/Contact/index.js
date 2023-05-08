@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import { validateEmail } from "../../utils/helpers"; // add this after you have the handle change and submit functions working properly
 
 function ContactForm() {
-  
-  const [formState, setFormState] = useState({ name: '', email: '', message: '' }); // set the initial state to empty strings
-  const [errorMessage, setErrorMessage] = useState(''); // Hook to handle the error state. set to empty
-  const { name, email, message } = formState;  // deconstructing formState into named properties. Now we can use these constants to assign the initial state, which are empty strings, to the defaultValue
+  const [formState, setFormState] = useState({
+    name: "",
+    email: "",
+    message: "",
+  }); // set the initial state to empty strings
 
+  const [errorMessage, setErrorMessage] = useState(""); // Hook to handle the error state. set to empty
+  const { name, email, message } = formState; // deconstructing formState into named properties. Now we can use these constants to assign the initial state, which are empty strings, to the defaultValue
 
   // handle form input change
   function handleChange(e) {
@@ -14,30 +17,26 @@ function ContactForm() {
       //console.log(e.target.value);
       const isValid = validateEmail(e.target.value);
 
-      console.log(isValid);
-
       // isValid conditional statement
       if (!isValid) {
         setErrorMessage("Your email is invalid.");
       } else {
-        setErrorMessage('');
+        setErrorMessage("");
       }
-    } else {    // checking the message and name form element values
+    } else {
+      // checking the message and name form element values
       if (!e.target.value.length) {
         setErrorMessage(`${e.target.name} is required.`);
       } else {
-        setErrorMessage('');
+        setErrorMessage("");
       }
     }
 
     if (!errorMessage) {
-      
       console.log("form is valid!");
-      setFormState({ ...formState, [e.target.name]: e.target.value });  // The name property of target in the expression actually refers to the name attribute of the form element.
+      setFormState({ ...formState, [e.target.name]: e.target.value }); // The name property of target in the expression actually refers to the name attribute of the form element.
     }
-    console.log("errorMessage",errorMessage);
   }
-
 
   // The function that'll handle the submission of the form data
   function handleSubmit(e) {
@@ -78,7 +77,11 @@ function ContactForm() {
             rows="5"
           />
         </div>
-        {errorMessage && (<div><p className="error-text">{errorMessage}</p></div>)}
+        {errorMessage && (
+          <div>
+            <p className="error-text" style={{color: "red", fontSize: "25px"}} >{errorMessage}</p>
+          </div>
+        )}
 
         <button type="submit">Submit</button>
       </form>

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Modal from '../Modal';
+
 
 const PhotoList = ({ category }) => {
 
@@ -102,7 +104,16 @@ const PhotoList = ({ category }) => {
 
   // We need to make it so that only photos with the selected category appear.
   const currentPhotos = photos.filter((photo) => photo.category === category);
-  
+  const [currentPhoto, setCurrentPhoto] = useState(); // addd inorder to toggle modal
+
+  const toggleModal = (image, i) => {
+    //current Photo
+    setCurrentPhoto({...image, index: i});
+    setIsModalOpen(true);
+  }
+
+  const [isModalOpen, setIsModalOpen] = useState(false); // setting to false until clicked
+
   return (
     <div>
       <div className="flex-row">
@@ -111,10 +122,12 @@ const PhotoList = ({ category }) => {
             src={require(`../../assets/small/${category}/${i}.jpg`)}
             alt={image.name}
             className="img-thumbnail mx-1"
+            onClick={() => toggleModal(image, i)}
             key={image.name}
           />
         ))}
       </div>
+      {isModalOpen && <Modal currentPhoto={currentPhoto} />}
     </div>
   );
 };

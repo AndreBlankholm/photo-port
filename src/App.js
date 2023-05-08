@@ -8,6 +8,7 @@ import ContactForm from "./components/Contact";
 //<img src={logo} className="App-logo" alt="logo" />
 
 function App() {
+  
   const [categories] = useState([
     {
       name: "commercial",
