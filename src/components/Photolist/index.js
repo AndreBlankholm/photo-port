@@ -109,7 +109,7 @@ const PhotoList = ({ category }) => {
   const toggleModal = (image, i) => {
     //current Photo
     setCurrentPhoto({...image, index: i});
-    setIsModalOpen(true);
+    setIsModalOpen(!isModalOpen);
   }
 
   const [isModalOpen, setIsModalOpen] = useState(false); // setting to false until clicked
@@ -127,7 +127,7 @@ const PhotoList = ({ category }) => {
           />
         ))}
       </div>
-      {isModalOpen && <Modal currentPhoto={currentPhoto} />}
+      {isModalOpen && <Modal currentPhoto={currentPhoto} onClose={toggleModal} />}
     </div>
   );
 };
